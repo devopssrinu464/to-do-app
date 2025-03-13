@@ -1,24 +1,24 @@
 pipeline {
     agent any
    
-    environment{
-        SCANNER_HOME= tool 'sonar-scanner'
-    }
+  //  environment{
+    //    SCANNER_HOME= tool 'sonar-scanner'
+    //}
 
     stages {
         stage('git-checkout') {
             steps {
-                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/jaiswaladi246/to-do-app.git'
+                git branch: 'main', changelog: false, poll: false, url: 'https://github.com/devopssrinu464/to-do-app.git'
             }
         }
 
-    stage('Sonar Analysis') {
-            steps {
-                   sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.url=URL_OF_SONARQUBE -Dsonar.login=TOKEN_OF_SONARQUBE -Dsonar.projectName=to-do-app \
-                   -Dsonar.sources=. \
-                   -Dsonar.projectKey=to-do-app '''
-               }
-            }
+    //stage('Sonar Analysis') {
+      //      steps {
+        //           sh ''' $SCANNER_HOME/bin/sonar-scanner -Dsonar.url=URL_OF_SONARQUBE -Dsonar.login=TOKEN_OF_SONARQUBE -Dsonar.projectName=to-do-app \
+          //         -Dsonar.sources=. \
+            //       -Dsonar.projectKey=to-do-app '''
+              // }
+            //}
            
 		stage('OWASP Dependency Check') {
             steps {
